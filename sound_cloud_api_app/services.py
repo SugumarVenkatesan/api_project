@@ -15,7 +15,7 @@ class SoundCloudApiService:
     def __init__(self):
         self.client_id = '2255e5d6063b906993b59e4831b9c7e9'
         self.client_secret = '1b30faa4afd71e103b76c1e7a71f25d3'
-        self.redirect_uri = 'http://127.0.0.1:8000/soundcloud/api_data'
+        self.redirect_uri = 'http://pysuguvenk.pythonanywhere.com/soundcloud/api_data'
     
     def get_connection(self):
         try:
