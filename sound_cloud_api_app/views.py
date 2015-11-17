@@ -14,6 +14,5 @@ def authenticate_soundcloud(request):
     return HttpResponseRedirect(api_connection.get_authorize_url()+'&display=popup')
 
 def get_api_details(request):
-    import pdb;pdb.set_trace()
     api_connection = SoundCloudApiFactory()
     return HttpResponseRedirect('/')
