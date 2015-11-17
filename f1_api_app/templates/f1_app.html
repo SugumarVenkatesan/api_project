@@ -33,7 +33,7 @@ $(document).ready(function()
   	  }
   });
   
-  $('.home_img').on("click", function(e){
+  $('#home_img').on("click", function(e){
 	  $(".modal-bg").show();
 	  window.location = "{% url 'api_base_url' %}"
   });
@@ -42,7 +42,10 @@ $(document).ready(function()
 {% endblock script %}
 {% block content %}
 <div class="test_fb_div container-fluid">
-<a href="#" class="btn home_img">
+<a href="{% url 'home' %}" class="btn home_img">
+      <span class="glyphicon glyphicon-user"></span> My Profile
+  </a>
+<a href="#" class="btn home_img" id="home_img">
           <span class="glyphicon glyphicon-home"></span> Home
 </a>
 {% block header %}<h1>F1 FEEDER API DATA</h1>{% endblock header %}

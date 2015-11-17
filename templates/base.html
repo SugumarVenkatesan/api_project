@@ -32,7 +32,10 @@
   <body>
   {% block content %}
   <div class="test_fb_div container-fluid">
-	 {% block header %}<h1>FETCH API DATA</h1>{% endblock header %}
+  <a href="{% url 'home' %}" class="btn home_img">
+      <span class="glyphicon glyphicon-user"></span> My Profile
+  </a>
+  {% block header %}<h1>FETCH API DATA</h1>{% endblock header %}
   </div>
   <br>
   {% block form %}
