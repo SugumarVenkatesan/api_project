@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>{% block title %} FETCH API DATA {% endblock title %}</title>  
+  {% block css %}
+  <link href="{{STATIC_URL}}css/style.css" rel="stylesheet" type="text/css">
+  <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  {% endblock css %}
+  {% block script %}
+  <script  src="{{STATIC_URL}}js/jquery.min.js"></script>
+  <script  src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+  {% endblock script %}
+  <script type="text/javascript">
+  $(document).ready(function()
+  {
+	 $("#btn_submit").on('click',function(e)
+	 {
+	  $(".modal-bg").show();
+	  if ($('#id_api_list').val() == 'SOUND_CLOUD_API')
+		  {
+		  $('#api_data_form').attr('action', "{% url 'authenticate_soundcloud' %}")
+		  $('#api_data_form').submit();
+		  }
+	  else
+	  {
+	  $('#api_data_form').submit();
+	  }
+	 });
+  });
+  </script>
+  </head>
+  <body>
+  {% block content %}
+  <div class="test_fb_div container-fluid">
+	 {% block header %}<h1>FETCH API DATA</h1>{% endblock header %}
+  </div>
+  <br>
+  {% block form %}
+     {% include "api_form.html" %}
+  {% endblock form %}
+  {% block load %}
+  <div class="modal-bg" style="display:none;">
+    <div class="login-centered-main">
+      <div class="loader-img">
+        <div class="square-box"> <img src="{{STATIC_URL}}images/loading_image.gif" alt="" width="50" height="50"/>
+          <p>LOADING.....PLEASE WAIT</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock load %}
+  {% endblock content %}
+  </body>
+</html> 
+ 
