@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import home
+from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,7 +11,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^f1/', include('f1_api_app.urls')),
     url(r'^soundcloud/', include('sound_cloud_api_app.urls')),
-    url(r'^$', home.api_base_view, name="base_url"),
+    url(r'^api$', home.api_base_view, name="api_base_url"),
+    url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),   
 )
 
 

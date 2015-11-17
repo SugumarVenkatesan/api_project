@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+  .thumbnail img{
+    max-width: 100%; /* do not stretch the bootstrap column */
+}
+
+.img-wrapper{
+	width: 100%;
+	padding-bottom: 150%; /* your aspect ratio here! */
+	position: relative;
+}
+
+.img-wrapper img{
+	position: absolute;
+	top: 0; 
+	bottom: 0; 
+	left: 0; 
+	right: 0;
+	min-height: 100%; /* optional: if you want the smallest images to fill the .thumbnail */
+}
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<!-- Navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+     <a class="navbar-brand" href="#WHO">Sugumar Venkatesan</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#WHO">WHO</a></li>
+        <li><a href="#WHAT">WHAT</a></li>
+        <li><a href="#WHERE">WHERE</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div id="WHO" class="container-fluid bg-1 text-center">
+  <h3 class="margin">Who Am I?</h3>
+  <img src="{{STATIC_URL}}images/me.jpg" class="img-responsive img-circle margin" style="display:inline" alt="me" width="350" height="350">
+  <h3>I'm an Python/Django Developer</h3>
+</div>
+
+<!-- Second Container -->
+<div id="WHAT" class="container-fluid bg-2 text-center">
+  <h3 class="margin">What Am I Done?</h3>
+  <p>I had done some interesting Django Python projects. To see the code, please view into</p>
+  <a href="https://github.com/SugumarVenkatesan/" class="btn btn-info btn-lg">
+    <span class="fa fa-github"></span> My Github Account
+  </a>
+  <br>
+  <br>
+  <p>To see the sample project in live</p>
+  <a href="{% url 'api_base_url' %}" class="btn btn-info btn-lg">
+    <span class="glyphicon glyphicon-link"></span> My Live Project
+  </a>
+</div>
+
+<!-- Third Container (Grid) -->
+<div id="WHERE" class="container-fluid bg-3 text-center">    
+  <h3 class="margin">Where To Find Me?</h3><br>
+  <div class="row">        
+        <!-- item -->
+        <div class="col-sm-4 col-sm-offset-2">
+           <p>I am more in to the facebook sharing some interesting stuffs as per technical and non-technical too.</p>
+            <div class="thumbnail">
+                <div class="img-wrapper">
+     			 <img src="{{STATIC_URL}}images/fb_img.jpg" class="img-responsive margin" alt="Image"></a>
+                </div>
+                <div class="caption text-center"><a href="https://www.facebook.com/aarya.sugumar"><i class="fa fa-facebook"></i> Let's become friends</a></div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+           <p>I started twitter account for the sake of doing some project with tweets from Twitter. Learnt Django by playing with tweets</p>
+            <div class="thumbnail">
+                <div class="img-wrapper">
+      				<a href="https://www.twitter.com/suguvenk"><img src="{{STATIC_URL}}images/tw_img.png" class="img-responsive margin" alt="Image"></a>
+                </div>
+                <div class="caption text-center"><a href="https://www.twitter.com/suguvenk"><i class="fa fa-twitter"></i> Let's become followers</a></div>
+            </div>
+        </div>    
+    
+   </div>
+</div>
+
+</body>
+</html>

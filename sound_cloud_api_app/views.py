@@ -7,6 +7,7 @@ from django.core.context_processors import csrf
 from fetch_api_data.forms import *
 from .services import SoundCloudApiFactory
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect
 
 def authenticate_soundcloud(request):
@@ -15,4 +16,4 @@ def authenticate_soundcloud(request):
 
 def get_api_details(request):
     api_connection = SoundCloudApiFactory()
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect(reverse('api_base_url'))
