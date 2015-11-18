@@ -1,0 +1,144 @@
+  <link href="{{STATIC_URL}}css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<html>
+<head>
+  <link href="{{STATIC_URL}}css/style.css" rel="stylesheet" type="text/css">
+  <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <script src="{{STATIC_URL}}js/jquery.min.js"></script>
+  <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    opacity: 0.25;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    }
+
+  .carousel-caption h3 {
+    color: #000000 !important;
+	}
+	
+	.carousel-caption p {
+	 font: 20px sans-serif !important;
+      line-height: 1.8 !important;
+     color: #000000 !important;
+	}
+	
+	.carousel-caption{
+     top: 0;
+    bottom: auto;
+	}
+	
+	.modal-bg p{
+	 color: #ff5309 ! important;
+	}
+	
+	.modal-bg h2{
+	padding:20px;
+	background-color:#000000;
+	color: white ! important;
+	}
+	
+	
+	@media (max-width: 600px) {
+    .carousel-caption p {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+	}
+	
+	/* Add a dark gray background color to the modal header and center text */
+	.modal-header, h4, .close {
+   	 background-color: #5cb85c;
+   	 color: #fff !important;
+     text-align: center;
+     font-size: 30px;
+    }
+
+	.modal-header, .modal-body {
+     padding: 40px 50px;
+	}
+</style>
+
+</head>
+<body>
+<div class="container-fluid">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{STATIC_URL}}images/dl_image.png" alt="driving license" class="img-responsive margin">
+        <div class="carousel-caption">
+        	<h3><strong>Driving License</strong></h3>
+        	<p>A document permitting a person to drive a motor vehicle.</p>
+      	</div>
+      </div>
+
+      <div class="item">
+         <img src="{{STATIC_URL}}images/pan_image.png" alt="pan card" class="img-responsive margin">
+         <div class="carousel-caption">
+        	<h3><strong>Pan Card</strong></h3>
+        	<p>Acts as an identifier for the “person” with the tax department.</p>
+      	</div>
+      </div>
+    
+      <div class="item">
+        <img src="{{STATIC_URL}}images/pp_image.jpeg" alt="passport" class="img-responsive margin">
+        <div class="carousel-caption">
+        	<h3><strong>Passport</strong></h3>
+        	<p>An official document issued by a government, certifying the holder's identity and citizenship and entitling them to travel under its protection to and from foreign countries</p>
+      	</div>
+      </div>
+
+     </div>
+    </div>
+
+ <div class="modal-bg">
+     <div class="login-centered-main">
+        <div class="container-fluid">
+          <p> <h2>Save your Identity details...</h2> </p>
+          <p> Have an Account! </p>
+          <button type="button" data-toggle="modal" data-target = "#loginModal" class="btn btn-success btn-block"> Login </button>
+          <br>
+          <p> Don't have an Account? </p>
+          <button type="button" class="btn btn-danger btn-block"> please signup! </button>
+          
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon glyphicon-log-in"></span> Login</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="psw"><span class="glyphicon glyphicon-user"></span> Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="usrname"><span class="fa fa-key"></span> Send To</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password">
+          </div>
+          <button type="submit" class="btn btn-block btn-success">Login
+            <span class="glyphicon glyphicon-log-in"></span>
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+          <span class="glyphicon glyphicon-remove"></span> Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div> 
+  
+</body>
+<script type="text/javascript">
+</script>
+</html>
