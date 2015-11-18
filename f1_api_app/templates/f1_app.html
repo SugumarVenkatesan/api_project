@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block title_image %}
+<link rel="icon" href="{{STATIC_URL}}images/f1_app.jpeg" type="image/jpeg">
+{% endblock title_image %}
 {% block title %}F1 FEEDER API DATA{% endblock title %}
 {% block css %}
    {{ block.super }}
