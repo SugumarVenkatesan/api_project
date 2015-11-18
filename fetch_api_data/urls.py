@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from . import home
+from . import home, settings
 from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
@@ -15,5 +15,7 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),   
 )
 
-
-urlpatterns += staticfiles_urlpatterns()
+if settings.DEBUG is False:   #if DEBUG is True it will be served automatically
+    urlpatterns += patterns('',
+            url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
