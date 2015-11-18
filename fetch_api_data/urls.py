@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^f1/', include('f1_api_app.urls')),
     url(r'^soundcloud/', include('sound_cloud_api_app.urls')),
-    url(r'^api$', home.api_base_view, name="api_base_url"),
+    url(r'^api/$', home.api_base_view, name="api_base_url"),
     url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),   
 )
 

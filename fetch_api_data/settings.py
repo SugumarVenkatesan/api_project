@@ -20,12 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'sgmfhp#+k1y!t_&h!h4h1tf5+tgavaxo!$z=seoa0%xl0d_dw)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pysuguvenk.pythonanywhere.com']
 
+APPEND_SLASH = True  
 
 # Application definition
 
