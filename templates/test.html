@@ -2,95 +2,10 @@
 <html>
 <head>
   <link href="{{STATIC_URL}}css/style.css" rel="stylesheet" type="text/css">
+  <link href="{{STATIC_URL}}css/id_homepage.css" rel="stylesheet" type="text/css">
   <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <script src="{{STATIC_URL}}js/jquery.min.js"></script>
   <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
-  <style>
-  .carousel-inner img {
-    min-height: 100%;
-    width: 100%; /* Set width to 100% */
-    margin: auto;
-    opacity: 0.25;
-    filter: alpha(opacity=60); /* For IE8 and earlier */
-    background-position: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    }
-
-  .carousel-caption h3 {
-    color: #000000 !important;
-	}
-	
-	.carousel-caption p {
-	 font: 20px sans-serif !important;
-     color: #000000 !important;
-      line-height: 1.8 !important;
-	}
-	
-	.carousel-caption{
-     top: 0;
-    bottom: auto;
-	}
-	
-	.modal-bg p{
-	 color: #ff5309 ! important;
-	}
-	
-	.modal-bg h2{
-	padding:20px;
-	background-color:#000000;
-	color: white ! important;
-	}
-	
-	.carousel,.item,.active{
-   	height:100%;
- 	}
-
-	.carousel-inner{
-    	height:100%;
-	}
-	
-	@media (max-width: 600px) {
-    .carousel-caption p {
-        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
-    }
-	}
-	
-	/* Add a dark gray background color to the modal header and center text */
-	.modal-header, h4, .close {
-   	 background-color: #5cb85c;
-   	 color: #fff !important;
-     text-align: center;
-     font-size: 30px;
-    }
-
-	.modal-header, .modal-body {
-     padding: 40px 50px;
-	}
-	
-	.container
-	{
-	  filter:alpha(opacity=80); /* IE */
-	  -moz-opacity:0.8; /* Mozilla */
-	  opacity: 0.8; /* CSS3 */
-	}
-	
-	.jumbotron {
-	  position: absolute;
-	  top: 50%;
-	  left:50%;
-	  -ms-transform: translate(-50%,-50%);
-	  -webkit-transform: translate(-50%,-50%);
-      -moz-transform: translate(-50%,-50%);
-	  -o-transform: translate(-50%,-50%);
-	  transform: translate(-50%,-50%);
-	  border-radius: 30px !important;
-	  border: 3px solid #C1E1A6;
-	  background-color: #585858;
-	}
-</style>
 
 </head>
 <body>
@@ -131,10 +46,10 @@
 	  <div class="jumbotron">
 	      <p> <h2>Save your Identity details...</h2> </p>
           <p> Have an Account! </p>
-          <button type="button" data-toggle="modal" data-target = "#loginModal" class="btn btn-success btn-block"> <strong>Login</strong> </button>
+          <button type="button" data-toggle="modal" data-target = "#loginModal" class="btn btn-success btn-block"> <strong><h3>Log In</h3></strong> </button>
           <br>
           <p> Don't have an Account? </p>
-          <button type="button" class="btn btn-danger btn-block"> <strong><small>please</small> signup!</strong> </button>
+          <button type="button" class="btn btn-danger btn-block"> <strong><h3>Sign Up</h3></strong> </button>
 	  </div>
 	</div>
     <div class="modal fade" id="loginModal" role="dialog">
