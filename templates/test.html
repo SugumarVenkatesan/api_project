@@ -56,6 +56,21 @@
 	.modal-header, .modal-body {
      padding: 40px 50px;
 	}
+	
+	.container
+	{
+	  filter:alpha(opacity=80); /* IE */
+	  -moz-opacity:0.8; /* Mozilla */
+	  opacity: 0.8; /* CSS3 */
+	}
+	
+	.jumbotron {
+	  position: absolute;
+	  top: 50%;
+	  left:50%;
+	  transform: translate(-50%,-50%);
+	  border: 1px dashed whitesmoke;
+	}
 </style>
 
 </head>
@@ -93,19 +108,18 @@
     </div>
 
  <div class="modal-bg">
-     <div class="login-centered-main">
-        <div class="container-fluid">
-          <p> <h2>Save your Identity details...</h2> </p>
+	<div class="container theme-showcase" role="main">
+	  <div class="jumbotron">
+	      <p> <h2>Save your Identity details...</h2> </p>
           <p> Have an Account! </p>
           <button type="button" data-toggle="modal" data-target = "#loginModal" class="btn btn-success btn-block"> <strong>Login</strong> </button>
           <br>
           <p> Don't have an Account? </p>
           <button type="button" class="btn btn-danger btn-block"> <strong><small>please</small> signup!</strong> </button>
-          
-        </div>
-    </div>
+	  </div>
+	</div>
     <div class="modal fade" id="loginModal" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
