@@ -12,6 +12,11 @@
     margin: auto;
     opacity: 0.25;
     filter: alpha(opacity=60); /* For IE8 and earlier */
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
     }
 
   .carousel-caption h3 {
@@ -20,8 +25,8 @@
 	
 	.carousel-caption p {
 	 font: 20px sans-serif !important;
-      line-height: 1.8 !important;
      color: #000000 !important;
+      line-height: 1.8 !important;
 	}
 	
 	.carousel-caption{
@@ -40,11 +45,13 @@
 	}
 	
 	.carousel,.item,.active{
-   height:100%;
- }
-.carousel-inner{
-    height:100%;
-}
+   	height:100%;
+ 	}
+
+	.carousel-inner{
+    	height:100%;
+	}
+	
 	@media (max-width: 600px) {
     .carousel-caption p {
         display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
@@ -75,20 +82,22 @@
 	  top: 50%;
 	  left:50%;
 	  transform: translate(-50%,-50%);
-	  border: 1px dashed whitesmoke;
+	  border-radius: 30px !important;
+	  border: 3px solid #C1E1A6;
+	  background-color: #585858;
 	}
 </style>
 
 </head>
 <body>
-<div class="container-fluid">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div class="container-fluid">
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <img src="{{STATIC_URL}}images/dl_image.png" alt="driving license" class="img-responsive margin">
-        <div class="carousel-caption">
+        <div class="carousel-caption sr-only">
         	<h3><strong>Driving License</strong></h3>
         	<p>A document permitting a person to drive a motor vehicle.</p>
       	</div>
@@ -96,7 +105,7 @@
 
       <div class="item">
          <img src="{{STATIC_URL}}images/pan_image.png" alt="pan card" class="img-responsive margin">
-         <div class="carousel-caption">
+         <div class="carousel-caption sr-only">
         	<h3><strong>Pan Card</strong></h3>
         	<p>Acts as an identifier for the “person” with the tax department.</p>
       	</div>
@@ -104,7 +113,7 @@
     
       <div class="item">
         <img src="{{STATIC_URL}}images/pp_image.jpeg" alt="passport" class="img-responsive margin">
-        <div class="carousel-caption">
+        <div class="carousel-caption sr-only">
         	<h3><strong>Passport</strong></h3>
         	<p>An official document issued by a government, certifying the holder's identity and citizenship and entitling them to travel under its protection to and from foreign countries</p>
       	</div>
@@ -159,9 +168,9 @@
 </div> 
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
-	   var height = $(window).height();  //getting windows height
-	   jQuery('#myCarousel').css('height',height+'px');   //and setting height of carousel
-	});
+ $(window).on('resize')(function() {
+	var height = $(window).height();  //getting windows height
+	jQuery('#myCarousel').css('height',height+'px');   //and setting height of carousel
+});
 </script>
 </html>
