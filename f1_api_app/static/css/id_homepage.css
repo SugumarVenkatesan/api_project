@@ -82,3 +82,16 @@
 	  border: 3px solid #C1E1A6;
 	  background-color: #585858 !important;
 	}
+	
+	#loginModal{
+	  position: absolute;
+	  top: 50%;
+	  left:50%;
+	  bottom: auto;
+	  -ms-transform: translate(-50%,-50%);
+	  -webkit-transform: translate(-50%,-50%);
+      -moz-transform: translate(-50%,-50%);
+	  -o-transform: translate(-50%,-50%);
+	  transform: translate(-50%,-50%);
+	  overflow-y :hidden;
+	}
