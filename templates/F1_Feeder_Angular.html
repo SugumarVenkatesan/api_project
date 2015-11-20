@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>	
+<head>
+<style>
+html, body, h1 { margin: 0px; padding: 0px; border: 0px; }
+.test_fb_div, button
+{
+background-color: #3a5795;
+border: 2px solid black;
+height: 100px
+border-radius: 5px 5px 5px 5px;
+}
+h1
+{
+color: white; 
+margin:auto;
+line-height:80px;
+text-align:center;
+border-radius: 5px 5px 5px 5px;
+}
+p
+{
+color: white;
+text-align:center;
+border-radius: 5px 5px 5px 5px;
+}
+.test_login_div
+{
+background-color: #e5e5e5;
+border: 2px solid #3a5795;
+border-radius: 5px;
+bottom: 21px;
+height: 422px;
+left: 0;
+margin: auto;
+position: absolute;
+right: 0;
+top: 108px;
+width: 1000px;
+overflow:scroll;
+}
+table{
+text-align:center;
+width:900px;
+}
+th , td { 
+   border: 1px solid #3a5795; 
+   border-collapse: collapse; 
+   padding: 5px; 
+   
+} 
+table tr:nth-child(odd) { 
+   background-color: #f2f2f2; 
+} 
+table tr:nth-child(even) { 
+   background-color: #ffffff; 
+}
+input
+{
+width:200px;
+height:30px;
+border: 1px solid #3a5795;
+border-radius: 5px 5px 5px 5px;
+}
+button
+{
+background-color: black;
+height: 30px;
+color: white;
+border-radius: 5px 5px 5px 5px;
+}
+</style>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+angular.module('F1FeederApp', [
+  'F1FeederApp.controllers',
+  'F1FeederApp.services'
+]);
+angular.module('F1FeederApp.controllers', []).
+  controller('driversController', function($scope, ergastAPIservice) {
+    $scope.nameFilter = null;
+    $scope.driversList = [];
+	$scope.searchFilter = function (driver) {
+    var keyword = new RegExp($scope.nameFilter, 'i');
+    return !$scope.nameFilter || keyword.test(driver.Driver.givenName) || keyword.test(driver.Driver.familyName);
+    };
+    ergastAPIservice.getDrivers().success(function (response) {
+        //Dig into the response to get the relevant data
+        $scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+    });
+  });
+angular.module('F1FeederApp.services', []).
+  factory('ergastAPIservice', function($http) {
+
+    var ergastAPI = {};
+
+    ergastAPI.getDrivers = function() {
+      return $http({
+        method: 'JSONP', 
+        url: 'http://ergast.com/api/f1/2013/driverStandings.json?callback=JSON_CALLBACK'
+      });
+    }
+
+    return ergastAPI;
+  });
+</script>
+
+
+<title></title>
+</head>
+<body ng-app="F1FeederApp" ng-controller="driversController">
+<div  class="test_fb_div">
+ <h1>Driver Championship standings</h1>
+</div>
+<div>
+<br>
+<div class="test_login_div">
+<p><input type="text" ng-model="nameFilter" placeholder="Search by Name"/></p>
+<table align="center">
+    <thead>
+      <tr><th colspan="5">Drivers Championship Standings</th></tr>
+	  <tr><th>S.no</th>
+	  <th>Country</th>
+	  <th>Name</th>
+	  <th>Vehicle</th>
+	  <th>Points</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="driver in driversList | filter: searchFilter">
+        <td>{{$index + 1}}</td>
+		<td>{{driver.Driver.nationality}}</td>
+        <td>{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}</td>
+        <td>{{driver.Constructors[0].name}}</td>
+        <td>{{driver.points}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

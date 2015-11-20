@@ -11,9 +11,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^f1/', include('f1_api_app.urls')),
     url(r'^soundcloud/', include('sound_cloud_api_app.urls')),
+    url(r'^identity_app/', include('identity_app.urls')),
     url(r'^api/$', home.api_base_view, name="api_base_url"),
-    url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),
-    url(r'^current_task/$', TemplateView.as_view(template_name='test.html'), name="current_task"),   
+    url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),     
 )
 
 if settings.DEBUG is False:   #if DEBUG is True it will be served automatically

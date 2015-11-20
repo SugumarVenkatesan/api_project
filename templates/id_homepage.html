@@ -51,7 +51,7 @@
           <button type="button" data-toggle="modal" data-target = "#loginModal" class="btn btn-success btn-block"> <strong><h3>Log In</h3></strong> </button>
           <br>
           <p> Don't have an Account? </p>
-          <button type="button" class="btn btn-danger btn-block"> <strong><h3>Sign Up</h3></strong> </button>
+          <button type="button" data-toggle="modal" data-target = "#SignupModal" class="btn btn-danger btn-block"> <strong><h3>Sign Up</h3></strong> </button>
 	  </div>
 	</div>
 	
@@ -64,19 +64,19 @@
     
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4><span class="glyphicon glyphicon glyphicon-log-in"></span> Login</h4>
+	        <h4><span class="glyphicon glyphicon-log-in"></span> Login</h4>
 	      </div>
 	      
 	      
 	      <div class="modal-body">
 	        <form role="form">
 	          <div class="form-group">
-	            <label for="psw"><span class="glyphicon glyphicon-user"></span> Username</label>
-	            <input type="text" class="form-control" id="username" placeholder="Enter username">
+	            <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
+	            <input type="text" class="form-control" id="username" placeholder="username">
 	          </div>
 	          <div class="form-group">
-	            <label for="usrname"><span class="fa fa-key"></span> Send To</label>
-	            <input type="password" class="form-control" id="password" placeholder="Enter password">
+	            <label for="password"><span class="fa fa-key"></span>Password</label>
+	            <input type="password" class="form-control" id="password" placeholder="password">
 	          </div>
 	          <button type="submit" class="btn btn-block btn-success">Login
 	            <span class="glyphicon glyphicon-log-in"></span>
@@ -96,7 +96,7 @@
   	</div>
   </div>
   
-  
+  {% include "registration.html" %}
 </div> 
 </body>
 

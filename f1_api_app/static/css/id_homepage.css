@@ -79,11 +79,11 @@
 	  -o-transform: translate(-50%,-50%);
 	  transform: translate(-50%,-50%);
 	  border-radius: 30px !important;
-	  border: 3px solid #C1E1A6;
 	  background-color: #585858 !important;
+	  border: 3px solid #C1E1A6;
 	}
 	
-	#loginModal{
+	#loginModal, #SignupModal{
 	  position: absolute;
 	  top: 50%;
 	  left:50%;
@@ -94,5 +94,4 @@
       -moz-transform: translate(-50%,-50%);
 	  -o-transform: translate(-50%,-50%);
 	  transform: translate(-50%,-50%);
-	  overflow-y :hidden;
 	}
