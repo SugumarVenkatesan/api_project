@@ -59,24 +59,41 @@ WSGI_APPLICATION = 'fetch_api_data.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or
-        # 'oracle'.
-        'ENGINE': 'django.db.backends.mysql',
-        # Or path to database file if using sqlite3.
-        'NAME': 'Identity',
-        'USER': 'pysuguvenk',                      # Not used with sqlite3.
-        'PASSWORD': 'root',                  # Not used with sqlite3.
-        # Set to empty string for localhost. Not used with sqlite3.
-        'HOST': 'pysuguvenk.mysql.pythonanywhere-services.com',
-        # Set to empty string for default. Not used with sqlite3.         # set
-        # the connection timeout for
-        'PORT': '',
+import socket
+if socket.gethostname().__contains__('tringapps'):
+    DATABASES = {
+        'default': {
+            # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or
+            # 'oracle'.
+            'ENGINE': 'django.db.backends.mysql',
+            # Or path to database file if using sqlite3.
+            'NAME': 'Identity',
+            'USER': 'root',                      # Not used with sqlite3.
+            'PASSWORD': 'root',                  # Not used with sqlite3.
+            # Set to empty string for localhost. Not used with sqlite3.
+            'HOST': '',
+            # Set to empty string for default. Not used with sqlite3.         # set
+            # the connection timeout for
+            'PORT': '',
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or
+            # 'oracle'.
+            'ENGINE': 'django.db.backends.mysql',
+            # Or path to database file if using sqlite3.
+            'NAME': 'pysuguvenk$Identity',
+            'USER': 'pysuguvenk',                      # Not used with sqlite3.
+            'PASSWORD': 'root',                  # Not used with sqlite3.
+            # Set to empty string for localhost. Not used with sqlite3.
+            'HOST': 'pysuguvenk.mysql.pythonanywhere-services.com',
+            # Set to empty string for default. Not used with sqlite3.         # set
+            # the connection timeout for
+            'PORT': '',
+        }
+    }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
