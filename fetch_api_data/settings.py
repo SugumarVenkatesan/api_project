@@ -26,7 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','pysuguvenk.pythonanywhere.com']
 
-APPEND_SLASH = True  
+APPEND_SLASH = True
 
 # Application definition
 
@@ -59,24 +59,41 @@ WSGI_APPLICATION = 'fetch_api_data.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or
-        # 'oracle'.
-        'ENGINE': 'django.db.backends.mysql',
-        # Or path to database file if using sqlite3.
-        'NAME': 'Identity',
-        'USER': 'pysuguvenk',                      # Not used with sqlite3.
-        'PASSWORD': 'root',                  # Not used with sqlite3.
-        # Set to empty string for localhost. Not used with sqlite3.
-        'HOST': 'pysuguvenk.mysql.pythonanywhere-services.com',
-        # Set to empty string for default. Not used with sqlite3.         # set
-        # the connection timeout for
-        'PORT': '',
+import socket
+if socket.gethostname().__contains__('tringapps'):
+    DATABASES = {
+        'default': {
+            # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or
+            # 'oracle'.
+            'ENGINE': 'django.db.backends.mysql',
+            # Or path to database file if using sqlite3.
+            'NAME': 'Identity',
+            'USER': 'root',                      # Not used with sqlite3.
+            'PASSWORD': 'root',                  # Not used with sqlite3.
+            # Set to empty string for localhost. Not used with sqlite3.
+            'HOST': '',
+            # Set to empty string for default. Not used with sqlite3.         # set
+            # the connection timeout for
+            'PORT': '',
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or
+            # 'oracle'.
+            'ENGINE': 'django.db.backends.mysql',
+            # Or path to database file if using sqlite3.
+            'NAME': 'pysuguvenk$Identity',
+            'USER': 'pysuguvenk',                      # Not used with sqlite3.
+            'PASSWORD': 'root',                  # Not used with sqlite3.
+            # Set to empty string for localhost. Not used with sqlite3.
+            'HOST': 'pysuguvenk.mysql.pythonanywhere-services.com',
+            # Set to empty string for default. Not used with sqlite3.         # set
+            # the connection timeout for
+            'PORT': '',
+        }
+    }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -102,7 +119,7 @@ STATIC_ROOT = os.path.join(
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'f1_api_app', 'templates'),
-    os.path.join(BASE_DIR, 'identity_app', 'templates'),   
+    os.path.join(BASE_DIR, 'identity_app', 'templates'),
     os.path.join(BASE_DIR, 'templates'),
 )
 
