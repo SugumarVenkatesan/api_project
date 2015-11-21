@@ -9,6 +9,7 @@ from django.contrib import messages
 api_params = {'offset':0,'limit':3}
 
 def f1_api_data(request):
+    import pdb;pdb.set_trace()
     args = {}
     args.update(csrf(request))
     args['has_next'] = True

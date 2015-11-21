@@ -6,6 +6,7 @@
   {% endblock title_image %}
   <title>{% block title %} FETCH API DATA {% endblock title %}</title>  
   {% block css %}
+  <link href="{{STATIC_URL}}css/id_homepage.css" rel="stylesheet" type="text/css">
   <link href="{{STATIC_URL}}css/style.css" rel="stylesheet" type="text/css">
   <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet" type="text/css">
   {% endblock css %}
@@ -45,14 +46,15 @@
      {% include "api_form.html" %}
   {% endblock form %}
   {% block load %}
-  <div class="modal-bg" style="display:none;">
-    <div class="login-centered-main">
-      <div class="loader-img">
-        <div class="square-box"> <img src="{{STATIC_URL}}images/loading_image.gif" alt="" width="50" height="50"/>
-          <p>LOADING.....PLEASE WAIT</p>
-        </div>
-      </div>
-    </div>
+  <div class="modal-bg" style="display:none; background:black;opacity:0.6;">
+	  <div class="loading">
+	       <div class="progress">
+  			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+  				aria-valuenow="100" style="width:100%;background-color:#28c101;">
+   				<p class="text-center">Loading...Please wait...</p>
+            </div>
+		  </div>
+	  </div>
   </div>
   {% endblock load %}
   {% endblock content %}

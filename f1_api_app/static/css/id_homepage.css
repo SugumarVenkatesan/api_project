@@ -62,7 +62,7 @@
      padding: 40px 50px !important;
 	}
 	
-	.container
+	#theme-showcase
 	{
 	  filter:alpha(opacity=80); /* IE */
 	  -moz-opacity:0.8; /* Mozilla */
@@ -82,6 +82,19 @@
 	  background-color: #585858 !important;
 	  border: 3px solid #C1E1A6;
 	}
+	
+	.loading
+	{
+      position: absolute;
+	  top: 50%;
+	  left:50%;
+	  -ms-transform: translate(-50%,-50%);
+	  -webkit-transform: translate(-50%,-50%);
+      -moz-transform: translate(-50%,-50%);
+	  -o-transform: translate(-50%,-50%);
+	  transform: translate(-50%,-50%);	
+	}
+	
 	
 	#loginModal, #SignupModal{
 	  position: absolute;
