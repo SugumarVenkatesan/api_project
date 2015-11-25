@@ -42,9 +42,18 @@
      </div>
     </div>
   </div>
+<div class="modal-bg">
 
- <div class="modal-bg">
- 
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-info text-center fade in">
+    <button class="batch fa fa-times-circle-o fa-2x" style="color:#000000;" data-dismiss="alert" aria-label="close">
+    </button>
+    <p class="text-center">{{ message }}</p>
+    </div>
+{% endfor %}
+{% endif %}
+
 	<div class="container theme-showcase" role="main">
 	  <div class="jumbotron">
 	      <p> <h2>Save your Identity details...</h2> </p>
