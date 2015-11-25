@@ -18,8 +18,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'sgmfhp#+k1y!t_&h!h4h1tf5+tgavaxo!$z=seoa0%xl0d_dw)'
-
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 TEMPLATE_DEBUG = True
@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'f1_api_app',
     'sound_cloud_api_app',
     'identity_app',
+    'djangular',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,6 +52,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+
 
 ROOT_URLCONF = 'fetch_api_data.urls'
 
@@ -86,12 +89,12 @@ else:
             # Or path to database file if using sqlite3.
             'NAME': 'pysuguvenk$Identity',
             'USER': 'pysuguvenk',                      # Not used with sqlite3.
+            'PORT': '',
             'PASSWORD': 'root',                  # Not used with sqlite3.
             # Set to empty string for localhost. Not used with sqlite3.
             'HOST': 'pysuguvenk.mysql.pythonanywhere-services.com',
             # Set to empty string for default. Not used with sqlite3.         # set
             # the connection timeout for
-            'PORT': '',
         }
     }
 

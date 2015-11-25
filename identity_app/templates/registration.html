@@ -1,51 +1,51 @@
-<div class="modal fade" id="SignupModal" role="dialog">
-  	  <div class="modal-dialog">
+<div class="modal fade row" id="SignupModal" role="dialog">
+  	  <div class="col-md-12 modal-dialog">
 
     	<!-- Modal content-->
     	<div class="modal-content">
     
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">
+	      <div class="col-md-12 modal-header">
+	        <button type="button" class="close modal-close">
 	        <span class="batch fa fa-times-circle-o fa-2x" style="color:#000000;"></span>
 	        </button>
 	        <h4><span class="fa fa-user-plus"></span>Sign Up</h4>
 	      </div>
 	      
-	      <div class="modal-body">
-	        <form role="form" action="{% url 'register' %}" method="post">{% csrf_token %}
+	      <div class="modal-body col-md-12">
+	        <form role="form" name={{form.form_name}} action="{% url 'register' %}" method="post" validate ng-controller="MyFormCtrl">{% csrf_token %}
 	          <div class="form-group">
-	            <label for="firstname"><span class="glyphicon glyphicon-user"></span> Firstname</label>
+	            <label for="firstname"><span class="glyphicon glyphicon-user"></span> Firstname <span class="pull-right text-danger">{{ form.first_name.errors }}</span></label>
 	            {{ form.first_name }}
 	            <!-- <input type="text" class="form-control" id="username" placeholder="username"> -->
 	          </div>
 	           <div class="form-group">
-	            <label for="lastname"><span class="glyphicon glyphicon-user"></span> Lastname</label>
+	            <label for="lastname"><span class="glyphicon glyphicon-user"></span> Lastname <span class="pull-right text-danger">{{ form.last_name.errors }}</span></label>
 	            {{ form.last_name }}
 	            <!-- <input type="text" class="form-control" id="username" placeholder="username"> -->
 	          </div>
 	           <div class="form-group">
-	            <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
+	            <label for="username"><span class="glyphicon glyphicon-user"></span> Username <span class="pull-right text-danger">{{ form.username.errors }}</span></label>
 	            {{ form.username }}
 	            <!-- <input type="text" class="form-control" id="username" placeholder="username"> -->
 	          </div>
 	          <div class="form-group">
-	            <label for="password1"><span class="fa fa-key"></span> Password1</label>
+	            <label for="password1"><span class="fa fa-key"></span> Password1 <span class="pull-right text-danger">{{ form.password1.errors }}</span></label>
 	            {{ form.password1 }}
 	            <!-- <input type="password1" class="form-control" id="password1" placeholder="password"> -->
 	          </div>
 	          <div class="form-group">
-	            <label for="password2"><span class="fa fa-key"></span> Password2</label>
+	            <label for="password2"><span class="fa fa-key"></span> Password2 <span class="pull-right text-danger">{{ form.password2.errors }}</span></label>
 	            {{ form.password2 }}
 	            <!-- <input type="password2" class="form-control" id="password2" placeholder="password"> -->
 	          </div>
-	          <button type="submit" class="btn btn-block btn-success">Sign Up
+	          <button type="button" ng-click="submit()" class="btn btn-block btn-success">Sign Up
 	            <span class="fa fa-user-plus"></span>
 	          </button>
 	        </form>
 	      </div>
 	 
 	      <div class="modal-footer">
-	        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+	        <button type="submit" class="btn btn-danger btn-default pull-left modal-close" data-dismiss="modal">
 	          <span class="glyphicon glyphicon-remove"></span> Cancel
 	        </button>
 	      </div>

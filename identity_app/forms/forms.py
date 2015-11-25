@@ -12,11 +12,11 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'username', 'password1', 'password2')
         
     #clean email field
     def clean_email(self):
-        email = self.cleaned_data["email"]
+        email = self.cleaned_data["username"]
         try:
             User._default_manager.get(email=email)
         except User.DoesNotExist:
@@ -34,7 +34,7 @@ class RegistrationForm(UserCreationForm):
     #modify save() method so that we can set user.is_active to False when we first create our user
     def save(self, commit=True):        
         user = super(RegistrationForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
+        user.email = self.cleaned_data['username']
         user.save()
         if commit:
             user.is_active = False # not active until he opens activation link
