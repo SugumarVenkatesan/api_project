@@ -1,0 +1,204 @@
+  .carousel-inner img {
+    min-height: 100%;
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    opacity: 0.25;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    }
+
+  .carousel-caption h3 {
+    color: #000000 !important;
+	}
+	
+	.carousel-caption p {
+	 font: 20px sans-serif !important;
+     color: #000000 !important;
+      line-height: 1.8 !important;
+	}
+	
+	.carousel-caption{
+     top: 0;
+    bottom: auto;
+	}
+	
+	.modal-bg p{
+	 color: #ff5309 ! important;
+	}
+	
+	.modal-bg h2{
+	padding:20px;
+	background-color:#000000;
+	color: white ! important;
+	}
+	
+	.carousel,.item,.active{
+   	height:100%;
+ 	}
+
+	.carousel-inner{
+    	height:100%;
+	}
+	
+	@media (max-width: 600px) {
+    .carousel-caption p {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+	}
+	
+	/* Add a dark gray background color to the modal header and center text */
+	.modal-header, h4, .close {
+   	 background-color: #5cb85c;
+   	 color: #fff !important;
+     text-align: center;
+     font-size: 30px;
+    }
+
+	.modal-header, .modal-body {
+     padding: 40px 50px !important;
+	}
+	
+	#theme-showcase
+	{
+	  filter:alpha(opacity=80); /* IE */
+	  -moz-opacity:0.8; /* Mozilla */
+	  opacity: 0.8; /* CSS3 */
+	}
+	
+	.jumbotron {
+	  position: absolute;
+	  top: 50%;
+	  left:50%;
+	  -ms-transform: translate(-50%,-50%);
+	  -webkit-transform: translate(-50%,-50%);
+      -moz-transform: translate(-50%,-50%);
+	  -o-transform: translate(-50%,-50%);
+	  transform: translate(-50%,-50%);
+	  border-radius: 30px !important;
+	  background-color: #585858 !important;
+	  border: 3px solid #C1E1A6;
+	}
+	
+	.loading
+	{
+      position: absolute;
+	  top: 50%;
+	  left:50%;
+	  -ms-transform: translate(-50%,-50%);
+	  -webkit-transform: translate(-50%,-50%);
+      -moz-transform: translate(-50%,-50%);
+	  -o-transform: translate(-50%,-50%);
+	  transform: translate(-50%,-50%);
+	}
+	
+	
+	#loginModal, #SignupModal{
+	  position: absolute;
+	  top: 50%;
+	  left:50%;
+	  bottom: auto;
+	  right:auto;
+	  -ms-transform: translate(-50%,-50%);
+	  -webkit-transform: translate(-50%,-50%);
+      -moz-transform: translate(-50%,-50%);
+	  -o-transform: translate(-50%,-50%);
+	  transform: translate(-50%,-50%);
+	}
+
+    .glyphicon-spin {
+  -webkit-animation: spin 1000ms infinite linear;
+  -ms-animation: spin 1000ms infinite linear;
+  -o-animation: spin 1000ms infinite linear;
+  -moz-animation: spin 1000ms infinite linear;
+   animation: spin 1000ms infinite linear;
+  }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+  
+  @-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+ }
+
+@-ms-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+ }
+
+ @-o-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+ }
+ 
+  @-moz-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+ }
