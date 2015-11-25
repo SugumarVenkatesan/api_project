@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from django.utils.encoding import force_text
 from django.core.urlresolvers import reverse_lazy
+from django.contrib import messages
 
 class RegistrationView(FormView):
     template_name = 'registration.html'
@@ -19,24 +20,28 @@ class RegistrationView(FormView):
         return super(RegistrationView, self).post(request, **kwargs)
 
     def ajax(self, request):
+        msg = None
         form = self.form_class(data=json.loads(request.body))
-        response_data = {'errors': form.errors, 'success_url': force_text(self.success_url)}
+        if form.is_valid():
+            try:
+                form.save()
+            except:
+                pass
+            else:
+                messages.add_message(request,messages.SUCCESS,'Successfully registered')
+        response_data = {'errors': form.errors,'success_url': force_text(self.success_url)}
         return HttpResponse(json.dumps(response_data), content_type="application/json")
     
     
 class HomeView(TemplateView):
     template_name = 'id_homepage.html'
-    
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
         return super(TemplateView, self).render_to_response(context)
     
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-
-        form = SignupForm(self.request.POST or None)  # instance= None
-
+        form = SignupForm()  # instance= None
         context["form"] = form
         #context["latest_article"] = latest_article
-
         return context

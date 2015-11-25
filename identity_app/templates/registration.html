@@ -13,19 +13,14 @@
 	      
 	      <div class="modal-body col-md-12">
 	        <form role="form" name={{form.form_name}} action="{% url 'register' %}" method="post" validate ng-controller="MyFormCtrl">{% csrf_token %}
-	          <div class="form-group">
-	            <label for="firstname"><span class="glyphicon glyphicon-user"></span> Firstname <span class="pull-right text-danger">{{ form.first_name.errors }}</span></label>
-	            {{ form.first_name }}
-	            <!-- <input type="text" class="form-control" id="username" placeholder="username"> -->
-	          </div>
-	           <div class="form-group">
-	            <label for="lastname"><span class="glyphicon glyphicon-user"></span> Lastname <span class="pull-right text-danger">{{ form.last_name.errors }}</span></label>
-	            {{ form.last_name }}
-	            <!-- <input type="text" class="form-control" id="username" placeholder="username"> -->
-	          </div>
 	           <div class="form-group">
 	            <label for="username"><span class="glyphicon glyphicon-user"></span> Username <span class="pull-right text-danger">{{ form.username.errors }}</span></label>
 	            {{ form.username }}
+	            <!-- <input type="text" class="form-control" id="username" placeholder="username"> -->
+	          </div>
+	          <div class="form-group">
+	            <label for="email"><span class="glyphicon glyphicon-envelope"></span> Email <span class="pull-right text-danger">{{ form.email.errors }}</span></label>
+	            {{ form.email }}
 	            <!-- <input type="text" class="form-control" id="username" placeholder="username"> -->
 	          </div>
 	          <div class="form-group">
