@@ -97,6 +97,8 @@ else:
             # the connection timeout for
         }
     }
+ 
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -128,4 +130,8 @@ TEMPLATE_DIRS = (
 
 STATICFILES_DIRS = (
                     os.path.join(BASE_DIR, 'f1_api_app','static'),
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
 )

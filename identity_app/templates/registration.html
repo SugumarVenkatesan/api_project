@@ -1,18 +1,18 @@
-<div class="modal fade row" id="SignupModal" role="dialog">
+<div class="modal fade row" id="SignupModal" role="dialog" ng-controller="MyFormCtrl">
   	  <div class="col-sm-12 modal-dialog">
 
     	<!-- Modal content-->
     	<div class="modal-content">
     
 	      <div class="col-sm-12 modal-header">
-	        <button type="button" class="close modal-close">
+	        <button type="button" class="close modal-close" ng-click="signup_form_reset()">
 	        <span class="batch fa fa-times-circle-o fa-2x" style="color:#000000;"></span>
 	        </button>
 	        <h4><span class="fa fa-user-plus"></span>Sign Up</h4>
 	      </div>
 	      
 	      <div class="modal-body col-sm-12">
-	        <form role="form" name={{form.form_name}} action="{% url 'register' %}" method="post" validate ng-controller="MyFormCtrl">{% csrf_token %}
+	        <form role="form" name={{form.form_name}} action="{% url 'register' %}" method="post" validate>{% csrf_token %}
 	           <div class="form-group">
 	            <label for="username"><span class="glyphicon glyphicon-user"></span> Username <span class="pull-right text-danger">{{ form.username.errors }}</span></label>
 	            {{ form.username }}
@@ -40,7 +40,7 @@
 	      </div>
 	 
 	      <div class="modal-footer">
-	        <button type="submit" class="btn btn-danger btn-default pull-left modal-close" data-dismiss="modal">
+	        <button type="submit" class="btn btn-danger btn-default pull-left modal-close" ng-click="signup_form_reset()">
 	          <span class="glyphicon glyphicon-remove"></span> Cancel
 	        </button>
 	      </div>
