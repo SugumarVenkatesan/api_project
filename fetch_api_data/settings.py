@@ -64,6 +64,7 @@ WSGI_APPLICATION = 'fetch_api_data.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 import socket
 if socket.gethostname().__contains__('tringapps'):
+    DOMAIN_URL = 'http://127.0.0.1:8000'
     DATABASES = {
         'default': {
             # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or
@@ -81,6 +82,7 @@ if socket.gethostname().__contains__('tringapps'):
         }
     }
 else:
+    DOMAIN_URL = 'http://pysuguvenk.pythonanywhere.com'
     DATABASES = {
         'default': {
             # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or
@@ -135,3 +137,17 @@ STATICFILES_DIRS = (
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
+
+import base64
+secret_key = os.environ.get('some_secret_key','None') + '_' + base64.b64decode('RGl3YU15R29k')
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sugumar.v@tringapps.com'
+EMAIL_HOST_PASSWORD = secret_key.split('_')[1]
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+
+USER_ACTIVATION_MAIL_EXPIRY_PERIOD = 2
