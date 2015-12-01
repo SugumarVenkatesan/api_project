@@ -139,7 +139,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 import base64
-secret_key = os.environ.get('some_secret_key','None') + '_' + base64.b64decode('RGl3YU15R29k')
+secret_key = os.environ.get('some_secret_key','None') + '_' + base64.b64decode('')
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = ''
