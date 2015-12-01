@@ -142,7 +142,7 @@ import base64
 secret_key = os.environ.get('some_secret_key','None') + '_' + base64.b64decode('RGl3YU15R29k')
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sugumar.v@tringapps.com'
+EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = secret_key.split('_')[1]
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
