@@ -1,0 +1,33 @@
+{% extends "id_homepage.html" %}
+{% block style_script_link %}
+ {{ block.super }}
+{% endblock %}
+{% block content %}
+  {{ block.super }}
+{% endblock %}
+{% block js %}
+  {{ block.super }}
+<script type="text/javascript">
+$(document).ready(function()
+{
+	if (!'{{ success }}')
+		{
+		$('#messageModal').modal('show'); 
+	    $('#message-head').addClass('btn-info')
+		$('#message-title').html('<span class="glyphicon glyphicon-thumbs-down"></span>' + ' Error');
+		$('#message-content').addClass('text-danger')
+		$('#message-content').html('<span class="fa fa-warning fa-3x"></span>&nbsp;&nbsp;' + '{{ error }}');
+		}
+	else{
+		if (!'{{ error }}')
+	    {
+		$('#messageModal').modal('show'); 
+	    $('#message-head').addClass('btn-info')
+		$('#message-title').html('<span class="glyphicon glyphicon-thumbs-up"></span>' + ' Success');
+		$('#message-content').addClass('text-success')
+		$('#message-content').html('<span class="glyphicon glyphicon-ok fa-3x"></span>&nbsp;&nbsp;' + '{{ success }}');
+	    }
+	}
+});
+</script>
+{% endblock %}

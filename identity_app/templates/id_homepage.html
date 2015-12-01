@@ -1,6 +1,7 @@
 {% load djangular_tags %}
 <head>
 <html ng-app = "djangular-demo">
+{% block style_script_link %}
   <link href="{{STATIC_URL}}css/style.css" rel="stylesheet" type="text/css">
   <link href="{{STATIC_URL}}css/id_homepage.css" rel="stylesheet" type="text/css">
   <link href="{{STATIC_URL}}css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -9,9 +10,10 @@
   <script src="{{STATIC_URL}}js/jquery.min.js"></script>
   <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
   <script src="{{STATIC_URL}}js/bootstrap-dialog.js"></script>
-  
+{% endblock %}  
 </head>
 <body>
+ {% block content %}
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	
 	<div class="container-fluid">
@@ -59,25 +61,15 @@
 </div>
     {% include "login.html" %}
     {% include "registration.html" %}
-    
-  <!-- Modal -->
-  <div class="modal fade" id="messageModal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header" id="message-head">
-	        <button type="button" class="close modal-close" data-dismiss="modal">
-	        <span class="batch fa fa-times-circle-o fa-2x" style="color:#000000;"></span>
-	        </button>
-	        <h4 id="message-title"></h4>
-	      </div>
-        <div class="modal-body">
-         <h5 id="message-content"></</h5>
-        </div>
-      </div>
-    </div>
+    {% include "message_modal.html" %}
+     <div class="modal-bg load" style="display:none; background:black;opacity:0.6;">
+	   <div class="loading">
+	      <p> <h1><span><i class="glyphicon glyphicon-refresh glyphicon-spin"></i></span></h1> </p>
+	  </div>
   </div>
-</div> 
+ {% endblock %} 
 </body>
+{% block js %}
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL }}djangular/js/ng-django-forms.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -96,9 +88,7 @@ $(document).ready(function()
          $('#loginModal').modal('show');
          $('.djng-field-errors li').hide();
          $('.djng-form-errors li').hide();
-     });
-         
-     
+     });   
 });
 	var my_app = angular.module('djangular-demo', ['ng.django.forms']);
 	my_app.config(function($httpProvider) {
@@ -107,6 +97,7 @@ $(document).ready(function()
 	});
 	angular.module('djangular-demo').controller('MyFormCtrl', function($scope, $http, $window, djangoForm) {
 		$scope.submit = function() {
+			$(".load").show();
 			if ($scope.subscribe_data) {
 				$http.post("{% url 'register' %}", $scope.subscribe_data).success(function(out_data) {
 					$('.djng-field-errors li').show();
@@ -121,14 +112,33 @@ $(document).ready(function()
 							$('#message-content').addClass('text-success')
 							$('#message-content').html('<span class="glyphicon glyphicon-ok fa-3x"></span>&nbsp;&nbsp;' + out_data.success);
 							$('#messageModal').modal('show');
-							setTimeout(function(){
+							/* setTimeout(function(){
 						        $("#messageModal").modal('hide');
-						    }, 3000);
+						    }, 3000); */
 							}
-						
+						if (out_data.error)
+						{
+						$scope.subscribe_data = {}
+						$('#SignupModal').modal('hide');
+						$('#message-head').addClass('btn-danger')
+						$('#message-title').html('<span class="glyphicon glyphicon-thumbs-down"></span>' + ' Error');
+						$('#message-content').addClass('text-danger')
+						$('#message-content').html('<span class="fa fa-warning fa-3x"></span>&nbsp;&nbsp;' + out_data.error);
+						$('#messageModal').modal('show');
+						/* setTimeout(function(){
+					        $("#messageModal").modal('hide');
+					    }, 3000); */
+						}
 					}
+					$('.load').hide();
 				}).error(function() {
-					console.error('An error occured during submission');
+					$scope.subscribe_data = {}
+					$('#SignupModal').modal('hide');
+					$('#message-head').addClass('btn-danger')
+					$('#message-title').html('<span class="glyphicon glyphicon-thumbs-down"></span>' + ' Error');
+					$('#message-content').addClass('text-danger')
+					$('#message-content').html('<span class="fa fa-warning fa-3x"></span>&nbsp;&nbsp;' + 'An Unknown error occured during submission');
+					$('#messageModal').modal('show');	
 				});
 			}
 			return false;
@@ -169,4 +179,5 @@ $(document).ready(function()
 		};
 	});
  </script>
+{% endblock %}
 </html>
