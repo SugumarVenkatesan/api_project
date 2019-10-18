@@ -82,7 +82,7 @@ software-center-aptd-plugins==0.0.0
 soundcloud==0.5.0
 system-service==0.1.6
 unity-lens-photos==1.0
-urllib3==1.7.1
+urllib3==1.24.2
 validictory==1.0.1
 vboxapi==1.0
 virtkey==0.63.0
