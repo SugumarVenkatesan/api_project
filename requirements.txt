@@ -74,7 +74,7 @@ python-distutils-extra==2.38
 pyxdg==0.25
 reportlab==3.0
 requests==2.8.1
-rsa==3.2.3
+rsa==4.7
 sessioninstaller==0.0.0
 simplejson==3.3.1
 six==1.10.0
